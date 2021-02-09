@@ -1,0 +1,8 @@
+language: java
+script:
+  - ./gradlew jacocoTestReport
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+branches:
+  only:
+    - master
