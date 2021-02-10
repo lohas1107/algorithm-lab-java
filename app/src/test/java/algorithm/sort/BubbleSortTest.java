@@ -24,8 +24,8 @@ public class BubbleSortTest {
         resultShouldBe(expected, new int[]{5, 7, 6, 3, 2, 4, 8, 9, 1});
     }
 
-    private void resultShouldBe(int[] expected, int[] result) {
-        assertArrayEquals(expected, bubbleSort.sort(result));
+    private void resultShouldBe(int[] expected, int[] ints) {
+        assertArrayEquals(expected, bubbleSort.sort(ints));
     }
 
 }
