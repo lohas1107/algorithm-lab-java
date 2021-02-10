@@ -1,4 +1,4 @@
-package algorithm;
+package algorithm.sort;
 
 public class BubbleSort extends Sort {
     public int[] sort(int[] ints) {
