@@ -18,6 +18,11 @@ public class LinearSearchTest {
         resultShouldBe(6, new int[]{7, 9, 6, 2, 4, 3, 1, 8, 5}, 1);
     }
 
+    @Test
+    public void linear_search_3() {
+        resultShouldBe(-1, new int[]{7, 9, 6, 2, 4, 3, 1, 8, 5}, 0);
+    }
+
     private void resultShouldBe(int expected, int[] ints, int target) {
         assertEquals(expected, linearSearch.search(ints, target));
     }
