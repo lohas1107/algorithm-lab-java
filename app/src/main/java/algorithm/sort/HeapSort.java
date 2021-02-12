@@ -5,6 +5,8 @@ import algorithm.structure.Heap;
 public class HeapSort extends Sort {
     @Override
     protected int[] sort(int[] ints) {
+        super.sort(ints);
+
         Heap heap = new Heap();
         ints = heap.buildMaxHeap(ints);
 
@@ -14,6 +16,7 @@ public class HeapSort extends Sort {
             ints[0] = temp;
 
             heap.maxHeapify(ints, i, 0);
+            printResult(ints);
         }
         return ints;
     }
