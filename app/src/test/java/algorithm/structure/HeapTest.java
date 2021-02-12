@@ -19,10 +19,10 @@ public class HeapTest {
     }
 
     private void maxResultShouldBe(int[] expected, int[] ints) {
-        assertArrayEquals(expected, heap.maxHeap(ints));
+        assertArrayEquals(expected, heap.buildMaxHeap(ints));
     }
 
     private void minResultShouldBe(int[] expected, int[] ints) {
-        assertArrayEquals(expected, heap.minHeap(ints));
+        assertArrayEquals(expected, heap.buildMinHeap(ints));
     }
 }
