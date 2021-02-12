@@ -2,59 +2,42 @@ package algorithm.structure;
 
 public class Heap {
 
+    private final int ASCENDING = -1;
+    private final int DESCENDING = 1;
+
     public int[] minHeap(int[] ints) {
         for (int i = ints.length / 2; i >= 0; i--) {
-            minHeap(ints, i);
+            heap(ints, i, ASCENDING);
         }
         return ints;
     }
 
     public int[] maxHeap(int[] ints) {
         for (int i = ints.length / 2; i >= 0; i--) {
-            maxHeap(ints, i);
+            heap(ints, i, DESCENDING);
         }
         return ints;
     }
 
-    private void minHeap(int[] ints, int i) {
-        int minIndex = i;
+    private void heap(int[] ints, int i, int order) {
+        int targetIndex = i;
         int leftIndex = 2 * i + 1;
         int rightIndex = 2 * i + 2;
 
-        if (ints.length > leftIndex && ints[leftIndex] < ints[minIndex]) {
-            minIndex = leftIndex;
+        if (ints.length > leftIndex && Integer.compare(ints[leftIndex], ints[targetIndex]) == order) {
+            targetIndex = leftIndex;
         }
-        if (ints.length > rightIndex && ints[rightIndex] < ints[minIndex]) {
-            minIndex = rightIndex;
+        if (ints.length > rightIndex && Integer.compare(ints[rightIndex], ints[targetIndex]) == order) {
+            targetIndex = rightIndex;
         }
 
-        if (minIndex != i) {
+        if (targetIndex != i) {
             int temp = ints[i];
-            ints[i] = ints[minIndex];
-            ints[minIndex] = temp;
+            ints[i] = ints[targetIndex];
+            ints[targetIndex] = temp;
 
-            minHeap(ints, minIndex);
+            heap(ints, targetIndex, order);
         }
     }
 
-    private void maxHeap(int[] ints, int i) {
-        int maxIndex = i;
-        int leftIndex = 2 * i + 1;
-        int rightIndex = 2 * i + 2;
-
-        if (ints.length > leftIndex && ints[leftIndex] > ints[maxIndex]) {
-            maxIndex = leftIndex;
-        }
-        if (ints.length > rightIndex && ints[rightIndex] > ints[maxIndex]) {
-            maxIndex = rightIndex;
-        }
-
-        if (maxIndex != i) {
-            int temp = ints[i];
-            ints[i] = ints[maxIndex];
-            ints[maxIndex] = temp;
-
-            maxHeap(ints, maxIndex);
-        }
-    }
 }
